@@ -1,6 +1,7 @@
 package com.example.shoppro.entity;
 
 import com.example.shoppro.constant.ItemSellstatus;
+import com.example.shoppro.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Table(name = "item")
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @Column(name = "item_id")   //테이블에서 매핑될 컬럼
@@ -37,9 +38,6 @@ public class Item {
 
     @Enumerated(EnumType.STRING)    //enum 가지고 만듦 YES/NO, SELL/SOLD_OUT
     private ItemSellstatus itemSellstatus;  //상품 판매 상태
-
-    private LocalDateTime regTime;       //상품 등록시간
-    private LocalDateTime updateTime;   //상품 수정시간
 
 
 }
