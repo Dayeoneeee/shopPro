@@ -3,15 +3,15 @@ package com.example.shoppro.entity;
 import com.example.shoppro.constant.ItemSellstatus;
 import com.example.shoppro.entity.base.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString //(exclude = "itemImgList")      //toString 변수 제외할 변수명
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -38,6 +38,14 @@ public class Item extends BaseEntity {
 
     @Enumerated(EnumType.STRING)    //enum 가지고 만듦 YES/NO, SELL/SOLD_OUT
     private ItemSellstatus itemSellstatus;  //상품 판매 상태
+
+    /* @ManyToOne(fetch = FetchType.LAZY)
+    * @JoinColumn(name = "member_id")
+    * private Member member;*/
+
+    @OneToMany
+    @JoinColumn(name = "item_id")
+    private List<ItemImg> itemImgList;
 
 
 }

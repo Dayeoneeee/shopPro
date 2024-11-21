@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>아이템 등록</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+    [[${itemDTO}]]
+
+    <th:block th:if="${not #lists.isEmpty(itemDTO.getItemImgDTOList())}" th:each="img : ${itemDTO.itemImgDTOList}">
+        <img th:src="${img.getImgUrl()}">
+    </th:block>
+
+
+</th:block>
+
+
+
+
+</body>
+</html>
