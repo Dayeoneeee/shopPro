@@ -43,9 +43,9 @@ public class Item extends BaseEntity {
     * @JoinColumn(name = "member_id")
     * private Member member;*/
 
-    @OneToMany
-    @JoinColumn(name = "item_id")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE)
     private List<ItemImg> itemImgList;
+
 
 
 }

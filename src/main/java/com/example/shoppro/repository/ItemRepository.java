@@ -1,13 +1,14 @@
 package com.example.shoppro.repository;
 
 import com.example.shoppro.entity.Item;
+import com.example.shoppro.repository.serch.ItemsearchRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long>, ItemsearchRepository {
     //제품명으로 검색. 제품명은 동일한 이름일 수 있으니
     //여러개 출력가능 List 사용
 
